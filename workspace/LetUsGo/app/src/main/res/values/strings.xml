@@ -13,4 +13,17 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="create_button">Create a event</string>
+    <string name="upcoming_button">Upcoming event</string>
+    <string name="pending_button">Pending event</string>
+    <string name="title">Title: </string>
+    <string name="time">Time: </string>
+    <string name="location">Location: </string>
+    <string name="add_friend">Add Friends:</string>
+    <string name="send_cong">You have successfully send out the invitation!</string>
+    <string name="detail">detail</string>
+    <string name="cancel_event_confirm">Are you sure you want to cancel this event?</string>
+    <string name="history">History</string>
+    <string name="log_out">Log Out</string>
+    <string name="add_to_cal_confirm">Do you want to add this event to your calendar?</string>
 </resources>

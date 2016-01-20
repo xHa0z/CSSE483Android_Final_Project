@@ -26,4 +26,5 @@
     <string name="history">History</string>
     <string name="log_out">Log Out</string>
     <string name="add_to_cal_confirm">Do you want to add this event to your calendar?</string>
+    
 </resources>

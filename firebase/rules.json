@@ -1,0 +1,64 @@
+{
+  "rules": {
+    "users": {
+      ".validate": "newData.hasChildren(['uid', 'name', 'isHost'])",
+      "uid": {
+        ".validate": "newData.isString()"
+      },
+      "name": {
+        ".validate": "newData.isString()"
+      },
+      "isHost": {
+        ".validate": "newData.isBoolean()"
+      },
+      "$other": {
+        ".validate": "false"
+      },
+      ".read": "auth != null && auth.provider == 'google'",
+      ".write": "auth != null && auth.provider == 'google'",
+      ".indexOn": [
+        "uid"
+      ],
+      "events": {
+        ".validate": "newData.hasChildren(['uid', 'timestamp', 'title', 'Location'])",
+        "uid": {
+          ".validate": "newData.isString()"
+        },
+        "timestamp": {
+          ".validate": "newData.isNumber()"
+        },
+        "title": {
+          ".validate": "newData.isString()"
+        },
+        "Location": {
+          ".validate": "newData.isString()"
+        },
+        "attendees": {
+          "$key1": {
+            ".validate": "newData.hasChildren(['uid', 'name', 'isHost'])",
+            "uid": {
+              ".validate": "newData.isString()"
+            },
+            "name": {
+              ".validate": "newData.isString()"
+            },
+            "isHost": {
+              ".validate": "newData.isBoolean()"
+            },
+            "$other": {
+              ".validate": "false"
+            }
+          }
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "auth != null && auth.provider == 'google'",
+        ".write": "auth != null && auth.provider == 'google'",
+        ".indexOn": [
+          "uid"
+        ]
+      }
+    }
+  }
+}

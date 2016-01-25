@@ -5,34 +5,48 @@
     tools:context="edu.rosehulman.weny.comewithme.Main_fragment">
 
 
-    <Button
-        android:id="@+id/create_event_button"
-        style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/create_event"
-        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/pending_event_button"
-        style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/pending"
 
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal|bottom" />
 
-    <Button
-        android:id="@+id/upcoming_event_button"
-        style="?android:textAppearanceSmall"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/upcoming"
-        android:textStyle="bold"
-        android:layout_gravity="center" />
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/create_event_button"
+            style="?android:textAppearanceSmall"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/button_create_event"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/pending_event_button"
+            style="?android:textAppearanceSmall"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_pending_evnet"
+
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal|bottom" />
+
+        <Button
+            android:id="@+id/upcoming_event_button"
+            style="?android:textAppearanceSmall"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/button_upcoming_event"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
 
 </FrameLayout>

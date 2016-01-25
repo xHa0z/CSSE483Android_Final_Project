@@ -1,0 +1,30 @@
+path /users is User{
+	read(){auth !== null && auth.provider === 'google'}
+	index(){"uid"}
+	write(){auth !== null && auth.provider === 'google'}
+}
+
+
+
+path /users/events is Event{
+	read(){auth !== null && auth.provider === 'google'}
+	index(){"uid"}
+	write(){auth !== null && auth.provider === 'google'}
+}
+
+
+type User {
+	uid: UserID,
+	name: String,
+	isHost: Boolean
+}
+
+type UserID extends String;
+
+type Event{
+	uid: UserID,
+	timestamp: Number;
+	title: String;
+	Location: String;
+	attendees: User[]
+}

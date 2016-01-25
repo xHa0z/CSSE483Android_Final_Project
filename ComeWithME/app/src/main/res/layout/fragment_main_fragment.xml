@@ -1,0 +1,38 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.rosehulman.weny.comewithme.Main_fragment">
+
+
+    <Button
+        android:id="@+id/create_event_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/create_event"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/pending_event_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/pending"
+
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <Button
+        android:id="@+id/upcoming_event_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/upcoming"
+        android:textStyle="bold"
+        android:layout_gravity="center" />
+
+</FrameLayout>

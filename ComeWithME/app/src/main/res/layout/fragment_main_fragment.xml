@@ -1,11 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_container"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:context=".fragments.Main_fragment">
 
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_container">
 
     <LinearLayout
         android:orientation="vertical"
@@ -47,5 +51,5 @@
             android:layout_gravity="center" />
 
     </LinearLayout>
-
+    </fragment>
 </FrameLayout>

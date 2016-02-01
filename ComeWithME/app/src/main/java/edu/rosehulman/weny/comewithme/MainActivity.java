@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
 
     private void switchToLoginFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.main_container, new Login_fragment(), "Login");
+        ft.replace(R.id.fragment, new Login_fragment(), "Login");
         ft.commit();
     }
 
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Fragment MainFragment = new Main_fragment();
         Bundle args = new Bundle();
 
-        ft.replace(R.id.fragment,MainFragment, "main");
+        ft.replace(R.id.main_container,MainFragment, "main");
         ft.commit();
     }
 

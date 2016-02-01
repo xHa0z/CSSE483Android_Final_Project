@@ -23,6 +23,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.IOException;
 
+import edu.rosehulman.weny.comewithme.fragments.Login_fragment;
+import edu.rosehulman.weny.comewithme.fragments.Main_fragment;
+
 public class MainActivity extends AppCompatActivity implements Login_fragment.OnLoginListener, GoogleApiClient.OnConnectionFailedListener{
 
     private static final int REQUEST_CODR_GOOGLE_LOGIN = 1;
@@ -50,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Firebase firebase = new Firebase(Constants.FIREBASE_URL);
         if(firebase.getAuth()== null || isExpired(firebase.getAuth())){
             switchToLoginFragment();
+        }else{
+            switchToMainFragment();
         }
     }
 
@@ -138,10 +143,18 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
 
     private void switchToLoginFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment, new Login_fragment(), "Login");
+        ft.replace(R.id.main_container, new Login_fragment(), "Login");
         ft.commit();
     }
 
+    private void switchToMainFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Fragment MainFragment = new Main_fragment();
+        Bundle args = new Bundle();
+
+        ft.replace(R.id.fragment,MainFragment, "main");
+        ft.commit();
+    }
 
 
     private void showLoginError(String message) {

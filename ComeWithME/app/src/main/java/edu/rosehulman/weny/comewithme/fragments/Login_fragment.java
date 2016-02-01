@@ -1,4 +1,4 @@
-package edu.rosehulman.weny.comewithme;
+package edu.rosehulman.weny.comewithme.fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -16,11 +16,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.common.SignInButton;
 
+import edu.rosehulman.weny.comewithme.R;
+
 
 public class Login_fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private View mLoginForm;
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBE
     private View mProgressSpinner;
     private boolean mLoggingIn;
     private SignInButton mGoogleSignInButton;

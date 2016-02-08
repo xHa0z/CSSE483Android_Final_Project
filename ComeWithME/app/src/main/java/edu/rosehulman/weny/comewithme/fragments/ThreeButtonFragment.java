@@ -59,6 +59,16 @@ public class ThreeButtonFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.create_event_button:
+                creat_event_Fragment createFrag = new creat_event_Fragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.main_container, createFrag, "create frag")
+                        .addToBackStack(null)
+                        .commit();
+
+        }
 
     }
 
@@ -70,10 +80,7 @@ public class ThreeButtonFragment extends Fragment implements View.OnClickListene
                 Log.d("PK", "LOGOUT Menu Item Clicked!");
                 mListener.onLogout();
                 return true;
-            case R.id.create_event_button:
-                Intent i = new Intent(getActivity(),creat_event_Fragment.class);
-                startActivity(i);
-                return true;
+
         }
         return false;
     }

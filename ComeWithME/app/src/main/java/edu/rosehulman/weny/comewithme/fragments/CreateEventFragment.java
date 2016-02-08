@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,12 +35,23 @@ public class CreateEventFragment extends Fragment implements View.OnClickListene
         TextView location = (TextView)v.findViewById(R.id.create_location_view);
         EditText locationText = (EditText)v.findViewById(R.id.create_location_text);
         ListView attendees = (ListView)v.findViewById(R.id.contract_listView);
+        Button mapButton = (Button)v.findViewById(R.id.map_button);
+
+        mapButton.setOnClickListener(this);
         return v;
     }
 
     @Override
     public void onClick(View v) {
-
-
+        int id = v.getId();
+        switch (id) {
+            case R.id.map_button:
+                LocationFragment locationFragment = new LocationFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, locationFragment, "create frag")
+                        .addToBackStack(null)
+                        .commit();
+                break;
+        }
     }
 }

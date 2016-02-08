@@ -9,5 +9,6 @@
     <string name="create_title">Title:</string>
     <string name="create_time">Time:</string>
     <string name="create_location">Location:</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

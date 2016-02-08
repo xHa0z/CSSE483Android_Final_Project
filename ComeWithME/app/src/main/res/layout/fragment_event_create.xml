@@ -47,6 +47,13 @@
             android:id="@+id/create_location_text"
             android:layout_gravity="center_horizontal" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google Map"
+            android:id="@+id/map_button"
+            android:layout_gravity="center_horizontal" />
+
         <ListView
             android:layout_width="298dp"
             android:layout_height="200dp"

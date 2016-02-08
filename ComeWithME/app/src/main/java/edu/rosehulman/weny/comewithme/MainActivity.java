@@ -24,6 +24,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.io.IOException;
 
 import edu.rosehulman.weny.comewithme.fragments.Login_fragment;
+import edu.rosehulman.weny.comewithme.fragments.Main_fragment;
 import edu.rosehulman.weny.comewithme.fragments.ThreeButtonFragment;
 
 public class MainActivity extends AppCompatActivity implements Login_fragment.OnLoginListener, ThreeButtonFragment.OnLogoutListener, GoogleApiClient.OnConnectionFailedListener{
@@ -74,10 +75,11 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
 //        switchToMainFragment(Constants.FIREBASE_URL + "/users" + firebase.getAuth().getUid());
 //        switchToMainFragment(Constants.REPO_URL + "/users" + firebase.getAuth().getUid());
 
-
-        Fragment mainFragment = new ThreeButtonFragment();
-        ft.replace(R.id.fragment_container, mainFragment);
-        ft.commit();
+//
+//        Fragment mainFragment = new ThreeButtonFragment();
+//
+//        ft.replace(R.id.fragment_container, mainFragment);
+//        ft.commit();
 
 
 

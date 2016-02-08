@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         setContentView(R.layout.activity_main);
 
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.fragment_container, new Login_fragment());
+//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//        ft.add(R.id.fragment_container, new Login_fragment());
         Log.d(TAG_LOG, "init");
 //        ft.commit();
 
@@ -63,14 +63,12 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Firebase firebase = new Firebase(Constants.FIREBASE_URL);
         Log.d(TAG_LOG,Constants.FIREBASE_URL);
         if(firebase.getAuth()== null || isExpired(firebase.getAuth())){
-            Log.d(TAG_LOG, "replace 1");
+            System.out.println(222222);
 //            Log.d(TAG_LOG, firebase.getAuth().toString());
             switchToLoginFragment();
-            Log.d(TAG_LOG, "replace 2");
         }else{
-            Log.d(TAG_FRAG, "frag replace 1");
-            switchToMainFragment(Constants.FIREBASE_URL + "/users" + firebase.getAuth().getUid());
-            Log.d(TAG_FRAG, "frag replace 2");
+            System.out.println(33333333);
+            switchToMainFragment(Constants.FIREBASE_URL + "/users/" + firebase.getAuth().getUid());
         }
 //        switchToMainFragment(Constants.FIREBASE_URL + "/users" + firebase.getAuth().getUid());
 //        switchToMainFragment(Constants.REPO_URL + "/users" + firebase.getAuth().getUid());
@@ -191,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Bundle args = new Bundle();
         args.putString(Constants.FIREBASE, repoUrl);
         Log.d(TAG_FRAG, "switch frag");
+        System.out.println(1111111111);
         ft.replace(R.id.fragment_container, mainFragment);
         ft.commit();
     }

@@ -24,17 +24,26 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.io.IOException;
 
 import edu.rosehulman.weny.comewithme.fragments.Login_fragment;
-import edu.rosehulman.weny.comewithme.fragments.Main_fragment;
+import edu.rosehulman.weny.comewithme.fragments.ThreeButtonFragment;
 
-public class MainActivity extends AppCompatActivity implements Login_fragment.OnLoginListener, GoogleApiClient.OnConnectionFailedListener{
+public class MainActivity extends AppCompatActivity implements Login_fragment.OnLoginListener, ThreeButtonFragment.OnLogoutListener, GoogleApiClient.OnConnectionFailedListener{
 
     private static final int REQUEST_CODR_GOOGLE_LOGIN = 1;
     private GoogleApiClient mGoogleApiClient;
+
+    private final String TAG_FRAG = "FRAG";
+    private final String TAG_LOG = "LOG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.fragment_container, new Login_fragment());
+        Log.d(TAG_LOG, "init");
+//        ft.commit();
 
         if (savedInstanceState == null) {
             Firebase.setAndroidContext(this);
@@ -51,16 +60,42 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
                 .build();
 
         Firebase firebase = new Firebase(Constants.FIREBASE_URL);
+        Log.d(TAG_LOG,Constants.FIREBASE_URL);
         if(firebase.getAuth()== null || isExpired(firebase.getAuth())){
+            Log.d(TAG_LOG, "replace 1");
+            Log.d(TAG_LOG, firebase.getAuth().toString());
             switchToLoginFragment();
+            Log.d(TAG_LOG, "replace 2");
         }else{
-            switchToMainFragment();
+            Log.d(TAG_FRAG, "frag replace 1");
+            switchToMainFragment(Constants.FIREBASE_URL + "/users" + firebase.getAuth().getUid());
+            Log.d(TAG_FRAG, "frag replace 2");
         }
+//        switchToMainFragment(Constants.FIREBASE_URL + "/users" + firebase.getAuth().getUid());
+//        switchToMainFragment(Constants.REPO_URL + "/users" + firebase.getAuth().getUid());
+
+
+        Fragment mainFragment = new ThreeButtonFragment();
+        ft.replace(R.id.fragment_container, mainFragment);
+        ft.commit();
+
+
+
+
+
     }
 
     private boolean isExpired(AuthData authData) {
         return (System.currentTimeMillis() / 1000) >= authData.getExpires();
     }
+
+    @Override
+    public void onLogout() {
+        Firebase firebase = new Firebase(Constants.FIREBASE_URL);
+        firebase.unauth();
+        switchToLoginFragment();
+    }
+
     class MyAuthResultHandler implements Firebase.AuthResultHandler
     {
 
@@ -143,16 +178,18 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
 
     private void switchToLoginFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.main_container, new Login_fragment(), "Login");
+
+        ft.replace(R.id.fragment_container, new Login_fragment(), "Login");
         ft.commit();
     }
 
-    private void switchToMainFragment() {
+    private void switchToMainFragment(String repoUrl) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Fragment MainFragment = new Main_fragment();
+        Fragment mainFragment = new ThreeButtonFragment();
         Bundle args = new Bundle();
-
-        ft.replace(R.id.fragment,MainFragment, "main");
+        args.putString(Constants.FIREBASE, repoUrl);
+        Log.d(TAG_FRAG, "switch frag");
+        ft.replace(R.id.fragment_container, mainFragment);
         ft.commit();
     }
 
@@ -161,4 +198,7 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Login_fragment loginFragment = (Login_fragment) getSupportFragmentManager().findFragmentByTag("Login");
         loginFragment.onLoginError(message);
     }
+
+
+
 }

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Log.d(TAG_LOG,Constants.FIREBASE_URL);
         if(firebase.getAuth()== null || isExpired(firebase.getAuth())){
             Log.d(TAG_LOG, "replace 1");
-            Log.d(TAG_LOG, firebase.getAuth().toString());
+//            Log.d(TAG_LOG, firebase.getAuth().toString());
             switchToLoginFragment();
             Log.d(TAG_LOG, "replace 2");
         }else{

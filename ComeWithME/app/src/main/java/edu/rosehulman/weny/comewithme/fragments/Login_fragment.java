@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,8 @@ public class Login_fragment extends Fragment {
     private SignInButton mGoogleSignInButton;
     private OnLoginListener mListener;
 
+    private final String TAG = "login";
+
     public Login_fragment() {
         // Required empty public constructor
     }
@@ -36,6 +39,7 @@ public class Login_fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLoggingIn = false;
+        Log.d(TAG, "111");
     }
 
     @Override

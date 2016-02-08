@@ -8,5 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.rosehulman.weny.comewithme.MainActivity">
 
+    <include layout="@layout/content_main" />
+
 
 </RelativeLayout>

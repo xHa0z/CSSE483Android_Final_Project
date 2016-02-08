@@ -62,12 +62,12 @@ public class ThreeButtonFragment extends Fragment implements View.OnClickListene
         int id = v.getId();
         switch (id) {
             case R.id.create_event_button:
-                creat_event_Fragment createFrag = new creat_event_Fragment();
+                CreateEventFragment createFrag = new CreateEventFragment();
                 this.getFragmentManager().beginTransaction()
-                        .replace(R.id.main_container, createFrag, "create frag")
+                        .replace(R.id.fragment_container, createFrag, "create frag")
                         .addToBackStack(null)
                         .commit();
-
+                break;
         }
 
     }

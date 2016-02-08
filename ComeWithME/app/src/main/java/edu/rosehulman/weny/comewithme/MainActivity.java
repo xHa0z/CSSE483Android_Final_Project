@@ -24,7 +24,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.io.IOException;
 
 import edu.rosehulman.weny.comewithme.fragments.Login_fragment;
-import edu.rosehulman.weny.comewithme.fragments.Main_fragment;
 import edu.rosehulman.weny.comewithme.fragments.ThreeButtonFragment;
 
 public class MainActivity extends AppCompatActivity implements Login_fragment.OnLoginListener, ThreeButtonFragment.OnLogoutListener, GoogleApiClient.OnConnectionFailedListener{
@@ -189,7 +188,6 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Bundle args = new Bundle();
         args.putString(Constants.FIREBASE, repoUrl);
         Log.d(TAG_FRAG, "switch frag");
-        System.out.println(1111111111);
         ft.replace(R.id.fragment_container, mainFragment);
         ft.commit();
     }
@@ -199,7 +197,4 @@ public class MainActivity extends AppCompatActivity implements Login_fragment.On
         Login_fragment loginFragment = (Login_fragment) getSupportFragmentManager().findFragmentByTag("Login");
         loginFragment.onLoginError(message);
     }
-
-
-
 }

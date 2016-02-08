@@ -2,6 +2,7 @@ package edu.rosehulman.weny.comewithme.fragments;
 
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -49,7 +50,6 @@ public class ThreeButtonFragment extends Fragment implements View.OnClickListene
         pendingButton.setOnClickListener(this);
         upcomingButton.setOnClickListener(this);
 
-
         return v;
     }
 
@@ -69,6 +69,10 @@ public class ThreeButtonFragment extends Fragment implements View.OnClickListene
             case R.id.action_logout:
                 Log.d("PK", "LOGOUT Menu Item Clicked!");
                 mListener.onLogout();
+                return true;
+            case R.id.create_event_button:
+                Intent i = new Intent(getActivity(),creat_event_Fragment.class);
+                startActivity(i);
                 return true;
         }
         return false;
